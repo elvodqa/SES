@@ -16,7 +16,7 @@ public class EntityTreeComponent
     public void Draw(List<Entity> entityList, IWindow window)
     {
         //ImGui.SetNextWindowDockID(ImGui.GetID("EntityTree"));
-        ImGui.Begin("EntityTree");
+        ImGui.Begin("Entity Tree");
         
         if (ImGui.BeginPopupContextWindow("Add Entity"))
         {
