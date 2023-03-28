@@ -1,16 +1,26 @@
-﻿
-using SFML.System;
+﻿using Silk.NET.Maths;
 
 namespace SES.ECS.Components;
 
 public class Transform : Component
 {
-    public Vector3f Position;
-    public Vector3f Scale;
-    public Vector3f Rotation;
+    /// <summary>
+    /// The position of the entity
+    /// </summary>
+    public Vector2D<float> Position;
+    
+    /// <summary>
+    /// Scale in percentage
+    /// </summary>
+    public Vector2D<float> Scale;
+    
+    /// <summary>
+    /// Rotation in degrees
+    /// </summary>
+    public Vector2D<float> Rotation; 
 
-    public override void Update(Clock clock)
+    public void Update()
     {
-        base.Update(clock);
+        
     }
 }

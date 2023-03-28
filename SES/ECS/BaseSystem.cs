@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
-using SFML.Graphics;
-using SFML.System;
+
 
 namespace SES.ECS;
 
@@ -8,19 +7,19 @@ public class BaseSystem
 {
     protected static List<Component> Components = GetAllComponents();
     
-    public static void Update(Clock clock)
+    public static void Update()
     {
         foreach (Component component in Components)
         {
-            component.Update(clock);
+            component.Update();
         }
     }
 
-    public static void Draw(RenderWindow window)
+    public static void Draw()
     {
         foreach (Component component in Components)
         {
-            component.Draw(window);
+            component.Draw();
         }
     }
     

@@ -2,10 +2,12 @@
 
 namespace SES.ECS;
 
-public class Entity  
+public class Entity
 {
-    public int Id { get; set; }
-    public Entity[] Children;
+    public string Name = "";
+    public int ID { get; set; }
+    public Entity Parent;
+    public List<Entity> Children = new();
     public readonly List<Component> Components = new();
     
     public Entity AddComponent<T>() where T : Component
