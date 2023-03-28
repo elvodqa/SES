@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using ImGuiNET;
 using SES.ECS;
+using SES.ECS.Components;
 using SES.Editor.UI;
 using Silk.NET.Input;
 using Silk.NET.Maths;
@@ -18,6 +19,7 @@ public class Editor
     private IInputContext inputContext = null;
     private List<Entity> entityTree = new();
     private EntityTreeComponent entityTreeComponent = new();
+    private EntityPropertyView entityPropertyView = new();
     
     public Editor()
     {
@@ -65,6 +67,9 @@ public class Editor
         childEntity.Name = "Some node";
         entity.Children.Add(childEntity);
         
+        childEntity.Components.Add(new Transform());
+        childEntity.Components.Add(new SpriteRendererComponent());
+        
     }
 
     
@@ -82,6 +87,7 @@ public class Editor
         
         ImGuiRender();
         entityTreeComponent.Draw(entityTree, window);
+        entityPropertyView.Draw(entityTreeComponent.Selected);
         controller.Render();
     }
     
